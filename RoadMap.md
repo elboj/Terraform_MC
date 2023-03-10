@@ -5,7 +5,7 @@
     - Terraform and its benefits
     - Difference between terraform and ansible (The SQL example)
 
-## Implementation Terraform 
+## Terraform Implementation
     - Local 
     - Cloud 
     - Pipeline
