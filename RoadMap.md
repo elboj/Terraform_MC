@@ -1,4 +1,5 @@
 # Week One
+[click me](https://google.com)
 
 ## Introduction
     - What is IaC
@@ -20,6 +21,10 @@
 
 ## Configuration Directory
     - main.tf
+    - provider.tf
+    - variables.tf (to be treated later)
+    - output.tf (to be treated later)
+    - variables.auto.tfvars (to be treated later)
 
 ## Understanding Providers
     - Provider Block
