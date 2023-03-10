@@ -9,6 +9,8 @@
 
 [Azure CLI Download](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 
+[Neblus Env Diagram](https://docs.google.com/drawings/d/1lSOiX81K8q7fdcV8eH3FndmMZQ2d78TJxHCiwVXAFBg/edit)
+
 ## Introduction
     - What is IaC
     - Terraform and its benefits
