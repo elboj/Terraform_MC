@@ -7,7 +7,7 @@
 
 [Terraform Download](https://developer.hashicorp.com/terraform/downloads)
 
-[Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
+[Azure CLI Download](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 
 ## Introduction
     - What is IaC
