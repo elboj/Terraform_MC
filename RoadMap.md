@@ -1,5 +1,10 @@
 # Week One
-[click me](https://google.com)
+
+## Resources
+[Terraform Registry](https://registry.terraform.io/)
+[Terraform Installation](https://www.youtube.com/watch?v=Cn6xYf0QJME&t=1s)
+[Terraform Download](https://developer.hashicorp.com/terraform/downloads)
+[Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 
 ## Introduction
     - What is IaC
@@ -9,11 +14,10 @@
 ## Terraform Implementation
     - Local 
     - Cloud 
-    - Pipeline
+    - Pipeline 
 
 ## Getting Started
-    - Terraform Installation
-      - Installation Video Link: https://www.youtube.com/watch?v=Cn6xYf0QJME&t=1s
+    - Terraform Installation (check link above)
     - Azure CLI 
     - VSCode setup 
     - Neblus Project Introduction
