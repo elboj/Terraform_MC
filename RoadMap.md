@@ -1,16 +1,16 @@
-#Week One
+# Week One
 
-##Introduction
+## Introduction
     - What is IaC
     - Terraform and its benefits
     - Difference between terraform and ansible (The SQL example)
 
-##Implementation Terraform 
+## Implementation Terraform 
     - Local 
     - Cloud 
     - Pipeline
 
-Getting Started
+## Getting Started
     - Terraform Installation
       - Video Link: https://www.youtube.com/watch?v=Cn6xYf0QJME&t=1s
     - Azure CLI 
