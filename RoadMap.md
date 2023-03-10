@@ -2,8 +2,11 @@
 
 ## Resources
 [Terraform Registry](https://registry.terraform.io/)
+
 [Terraform Installation](https://www.youtube.com/watch?v=Cn6xYf0QJME&t=1s)
+
 [Terraform Download](https://developer.hashicorp.com/terraform/downloads)
+
 [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 
 ## Introduction
