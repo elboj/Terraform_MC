@@ -12,9 +12,7 @@
 
 ## Getting Started
     - Terraform Installation
-      - Installation Video Link [HERE](https://www.youtube.com/watch?v=Cn6xYf0QJME&t=1s)
-      - 
-      My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
+      - Installation Video Link: https://www.youtube.com/watch?v=Cn6xYf0QJME&t=1s
     - Azure CLI 
     - VSCode setup 
     - Neblus Project Introduction
