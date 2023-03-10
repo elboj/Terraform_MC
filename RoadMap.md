@@ -40,6 +40,11 @@
 ## Using the resource block
     - Syntax
     - Using the terraform docs
+    - Terraform fmt
+    - Terraform init
+    - Terraform Plan
+    - Terraform Apply
+    - Using -auto-approve
 
 ## Hands-on Lab One
     - Provision Primary VM
