@@ -3,7 +3,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "=3.0.1"
+      version = "3.47.0"
     }
   }
 }
@@ -12,9 +12,10 @@ provider "azurerm" {
   features {}
 }
 
+
 resource "azurerm_resource_group" "resource-group" {
   name     = "NEU-RG-STG001"
-  location = "East US"
+  location = "east us"
 }
 
 resource "azurerm_virtual_network" "virtual-network" {
@@ -49,6 +50,10 @@ resource "azurerm_windows_virtual_machine" "virtual-machine" {
   location            = azurerm_resource_group.resource-group.location
   size                = "Standard_F2"
   admin_username      = "neblus"
+  tags = {
+    "env" = "production"
+  }
+  timezone            = "Eastern Standard Time"
   admin_password      = "P@$$w0rd1234!"
   network_interface_ids = [
     azurerm_network_interface.nic.id,
