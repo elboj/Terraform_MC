@@ -13,6 +13,7 @@
 
 ## Introduction
     - What is IaC
+    - Declarative Languages
     - Terraform and its benefits
     - Difference between terraform and ansible (The SQL example)
 
@@ -57,7 +58,7 @@
     * Using the data block
 
 ## Hands-on Lab Two
-    - Quick Note on Depedencies (TF declarative linear model)
+    - Quick Note on Depedencies (TF linear processing model)
     - Provision Neblus Primary Load balancer
 
 
