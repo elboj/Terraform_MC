@@ -81,4 +81,4 @@ resource "azurerm_lb_rule" "lb-rule" {
   backend_address_pool_ids       = [azurerm_lb_backend_address_pool.example.id]
   probe_id                       = azurerm_lb_probe.health-probe.id
   frontend_ip_configuration_name = "ipconfig"
-}
+
