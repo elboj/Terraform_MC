@@ -37,8 +37,9 @@ stages:
       inputs:
         buildType: 'current'
         downloadType: 'specific'
-        downloadPath: '$(System.DefaultWorkingDirectory)/_artifacts/drop/main/NEBLUS-VM-EastUS/'
+        downloadPath: '$(System.DefaultWorkingDirectory)/_artifact'
         artifactName: 'drop'
+
     - task: AzureCLI@2
       inputs:
         azureSubscription: 'Azure subscription 1 (8bf20060-c4ab-41d0-a67f-ea773eab84db)'
@@ -64,6 +65,17 @@ stages:
     - task: TerraformInstaller@1
       inputs:
         terraformVersion: 'latest'
+    
+    - task: TerraformTaskV4@4
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/_artifacts/drop/main/NEBLUS-VM-EastUS/'
+        backendServiceArm: 'Azure subscription 1 (8bf20060-c4ab-41d0-a67f-ea773eab84db)'
+        backendAzureRmResourceGroupName: '$( STORAGERG)'
+        backendAzureRmStorageAccountName: '$(TERRAFORMSTORAGEACCOUNT)'
+        backendAzureRmContainerName: 'neblus-eastus'
+        backendAzureRmKey: 'new_folder/terraform.tfstate'
         
     # - script: |
     #     echo 'Welcome to deploy stage'
