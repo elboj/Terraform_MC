@@ -78,6 +78,10 @@ stages:
     - script: |
          echo ${env:Release.EnvironmentName}
       displayName: 'Testing Deploying is working'
+      
+    - task: TerraformInstaller@1
+      inputs:
+        terraformVersion: 'latest'
     
     - task: TerraformTaskV4@4
       inputs:
