@@ -10,7 +10,7 @@ terraform {
         storage_account_name = "__TERRAFORMSTORAGEACCOUNT__"
         container_name       = "neblus-eastus"
         key                  = "terraform.tfstate"
-        access_key = "__STORAGEKEY__"
+        access_key  ="__storagekey__"
     }
 }
 
