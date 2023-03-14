@@ -67,7 +67,7 @@ stages:
         terraformVersion: 'latest'
         
     - script: |
-         echo $(Release.EnvironmentName)
+         echo ${env:Release.EnvironmentName}
       displayName: 'Testing Deploying is working'
     
     - task: TerraformTaskV4@4
@@ -76,7 +76,7 @@ stages:
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/_artifact/drop/main/NEBLUS-VM-EastUS/'
         backendServiceArm: 'Azure subscription 1 (8bf20060-c4ab-41d0-a67f-ea773eab84db)'
-        backendAzureRmResourceGroupName: '$( STORAGERG)'
+        backendAzureRmResourceGroupName: '$(STORAGERG)'
         backendAzureRmStorageAccountName: '$(TERRAFORMSTORAGEACCOUNT)'
         backendAzureRmContainerName: 'neblus-eastus'
         backendAzureRmKey: 'new_folder/terraform.tfstate'
