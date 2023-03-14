@@ -1,0 +1,49 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+stages:
+- stage: CI
+  jobs:
+  - job: Build
+
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: 'Week_1'
+        Contents: '**'
+        TargetFolder: '$(build.artifactstagingdirectory)/main'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+  
+- stage: CD
+  jobs:
+  - job: Deploy
+    
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+
+    - task: DownloadBuildArtifacts@1
+      inputs:
+        buildType: 'current'
+        downloadType: 'specific'
+        downloadPath: '$(System.DefaultWorkingDirectory)/_artifacts/drop/main/NEBLUS-VM-EastUS/'
+        artifactName: 'drop'
+        
+    - script: |
+        echo 'Welcome to deploy stage'
+      displayName: 'Testing Deploying is working'
+
+        
+
+
