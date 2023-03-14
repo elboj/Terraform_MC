@@ -4,14 +4,14 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+- manual
 stages:
-- stage: CI
+- stage: Build
   jobs:
   - job: Build
 
     pool:
-      vmImage: ubuntu-latest
+      vmImage: windows-2019
     steps:
 
     - task: CopyFiles@2
@@ -25,12 +25,12 @@ stages:
         ArtifactName: 'drop'
         publishLocation: 'Container'
   
-- stage: CD
+- stage: Deploy
   jobs:
   - job: Deploy
     
     pool:
-      vmImage: ubuntu-latest
+      vmImage: windows-2019
     steps:
 
     - task: DownloadBuildArtifacts@1
@@ -39,10 +39,35 @@ stages:
         downloadType: 'specific'
         downloadPath: '$(System.DefaultWorkingDirectory)/_artifacts/drop/main/NEBLUS-VM-EastUS/'
         artifactName: 'drop'
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: 'Azure subscription 1 (8bf20060-c4ab-41d0-a67f-ea773eab84db)'
+        scriptType: 'ps'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az storage container create --name neblus-eastus --account-name $(TERRAFORMSTORAGEACCOUNT)
+          
+          az storage account keys list -g $(STORAGERG) -n $(TERRAFORMSTORAGEACCOUNT)
+    - task: AzurePowerShell@5
+      inputs:
+        azureSubscription: 'Azure subscription 1 (8bf20060-c4ab-41d0-a67f-ea773eab84db)'
+        ScriptType: 'InlineScript'
+        Inline: |
+          # Using this script we will fetch storage key which is required in terraform file to authenticate backend storage account
+          
+          $key=(Get-AzureRmStorageAccountKey -ResourceGroupName $(STORAGERG) -AccountName $(TERRAFORMSTORAGEACCOUNT)).Value[0]
+          
+          Write-Host "##vso[task.setvariable variable=storagekey]$key"
+          
+          #echo $key
+        azurePowerShellVersion: 'LatestVersion'
+    - task: TerraformInstaller@1
+      inputs:
+        terraformVersion: 'latest'
         
-    - script: |
-        echo 'Welcome to deploy stage'
-      displayName: 'Testing Deploying is working'
+    # - script: |
+    #     echo 'Welcome to deploy stage'
+    #   displayName: 'Testing Deploying is working'
 
         
 
