@@ -49,7 +49,7 @@ stages:
           az storage container create --name neblus-eastus --account-name $(TERRAFORMSTORAGEACCOUNT)
           
           az storage account keys list -g $(STORAGERG) -n $(TERRAFORMSTORAGEACCOUNT)
-    - task: AzurePowerShell@5
+    - task: AzurePowerShell@3
       inputs:
         azureSubscription: 'Azure subscription 1 (8bf20060-c4ab-41d0-a67f-ea773eab84db)'
         ScriptType: 'InlineScript'
