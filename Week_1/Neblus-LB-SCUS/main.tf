@@ -6,6 +6,13 @@ terraform {
       version = "=3.0.1"
     }
   }
+   backend "azurerm" {
+        resource_group_name  = "tfstate"
+        storage_account_name = "__terraformstorageaccount__"
+        container_name       = "neblus-eastus"
+        key                  = "neblus-lb-terraform.tfstate"
+        access_key = "__storagekey__"
+    }
 }
 
 provider "azurerm" {
@@ -81,4 +88,5 @@ resource "azurerm_lb_rule" "lb-rule" {
   backend_address_pool_ids       = [azurerm_lb_backend_address_pool.example.id]
   probe_id                       = azurerm_lb_probe.health-probe.id
   frontend_ip_configuration_name = "ipconfig"
+}
 

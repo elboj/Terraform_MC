@@ -1,11 +1,17 @@
-#provider block
 terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "3.47.0"
+      version = "=3.0.1"
     }
   }
+   backend "azurerm" {
+        resource_group_name  = "tfstate"
+        storage_account_name = "__terraformstorageaccount__"
+        container_name       = "neblus-eastus"
+        key                  = "neblus-vm-terraform.tfstate"
+        access_key = "__storagekey__"
+    }
 }
 
 provider "azurerm" {
