@@ -65,12 +65,16 @@ stages:
     - task: TerraformInstaller@1
       inputs:
         terraformVersion: 'latest'
+        
+    - script: |
+         echo $(Release.EnvironmentName)
+      displayName: 'Testing Deploying is working'
     
     - task: TerraformTaskV4@4
       inputs:
         provider: 'azurerm'
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/_artifacts/drop/main/NEBLUS-VM-EastUS/'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/_artifact/drop/main/NEBLUS-VM-EastUS/'
         backendServiceArm: 'Azure subscription 1 (8bf20060-c4ab-41d0-a67f-ea773eab84db)'
         backendAzureRmResourceGroupName: '$( STORAGERG)'
         backendAzureRmStorageAccountName: '$(TERRAFORMSTORAGEACCOUNT)'
