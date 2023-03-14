@@ -6,11 +6,11 @@ terraform {
     }
   }
    backend "azurerm" {
-        resource_group_name  = "tfstate"
-        storage_account_name = "__terraformstorageaccount__"
+        resource_group_name  = "__STORAGERG__"
+        storage_account_name = "__TERRAFORMSTORAGEACCOUNT__"
         container_name       = "neblus-eastus"
         key                  = "neblus-vm-terraform.tfstate"
-        access_key = "__storagekey__"
+        access_key = "__STORAGEKEY__"
     }
 }
 
@@ -20,7 +20,7 @@ provider "azurerm" {
 
 
 resource "azurerm_resource_group" "resource-group" {
-  name     = "NEU-RG-STG001"
+  name     = "NEU-RG-PRD001"
   location = "east us"
 }
 

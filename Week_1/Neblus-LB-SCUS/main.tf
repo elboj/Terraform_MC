@@ -6,12 +6,12 @@ terraform {
       version = "=3.0.1"
     }
   }
-   backend "azurerm" {
-        resource_group_name  = "tfstate"
-        storage_account_name = "__terraformstorageaccount__"
+ backend "azurerm" {
+        resource_group_name  = "__STORAGERG__"
+        storage_account_name = "__TERRAFORMSTORAGEACCOUNT__"
         container_name       = "neblus-eastus"
-        key                  = "neblus-lb-terraform.tfstate"
-        access_key = "__storagekey__"
+        key                  = "neblus-vm-terraform.tfstate"
+        access_key = "__STORAGEKEY__"
     }
 }
 
